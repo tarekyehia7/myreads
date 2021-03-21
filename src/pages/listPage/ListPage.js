@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { AddIcon } from '../../components/atoms';
-import BooksList from '../../components/list/BooksList';
+import { AddIcon } from '@components/atoms';
+import BooksList from '@components/list/BooksList';
 
 const List = () => {
     return (

@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-import * as booksAPI from '../../api/BooksAPI'
+import * as booksAPI from '@api/BooksAPI'
 
-import { Spinner } from '../atoms';
-import { Book } from '../organisms'
-import { booksCategoriesKeys } from '../../utils/booksHelper';
+import { Spinner } from '@atoms';
+import { Book } from '@organisms'
+import { booksCategoriesKeys } from '@utils/booksHelper';
 
 export const SearchList = ({ books }) => {
 
@@ -30,4 +31,8 @@ export const SearchList = ({ books }) => {
             </ol>
         </div>
     );
+};
+
+SearchList.propTypes = {
+    books: PropTypes.object.isRequired
 };

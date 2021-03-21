@@ -1,6 +1,8 @@
 
 import styled from 'styled-components';
 
+import arrowDropDownImageURL from '@icons/arrow-drop-down.svg';
+
 export const ChangerContianer = styled.div`
     position: absolute;
     right: 0;
@@ -9,7 +11,7 @@ export const ChangerContianer = styled.div`
     height: 40px;
     border-radius: 50%;
     background: #60ac5d;
-    background-image: url('../../../icons/arrow-drop-down.svg');
+    background-image: url(${arrowDropDownImageURL});
     background-repeat: no-repeat;
     background-position: center;
     background-size: 20px;

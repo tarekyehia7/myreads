@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import {
     BookContainer,
@@ -6,8 +7,8 @@ import {
     BookTitle,
     BookAuthor
 } from './Book.styled';
-import { BookCover } from '../../atoms';
-import { ShelfChanger } from '../../molecules';
+import { BookCover } from '@atoms';
+import { ShelfChanger } from '@molecules';
 
 export const Book = ({
     className,
@@ -32,3 +33,11 @@ export const Book = ({
         </BookContainer>
     );
 }
+
+Book.propTypes = {
+    bookTitle: PropTypes.string,
+    bookAuthor: PropTypes.string,
+    selectedShelf: PropTypes.string,
+    bookCoverUrl: PropTypes.string,
+    onSelectionChange: PropTypes.func,
+};

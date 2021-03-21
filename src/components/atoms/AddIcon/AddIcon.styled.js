@@ -1,13 +1,15 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+import addImageUrl from '@icons/add.svg'
+
 export const AddButton = styled(Link)`
     display: block;
     width: 50px;
     height: 50px;
     border-radius: 50%;
     background: #2e7d32;
-    background-image: url(../../../icons/add.svg);
+    background-image: url(${addImageUrl});
     background-repeat: no-repeat;
     background-position: center;
     background-size: 28px;

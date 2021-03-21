@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 
-import * as booksAPI from '../../api/BooksAPI'
+import * as booksAPI from '@api/BooksAPI'
 
-import { BackLink } from '../../components/atoms';
-import { SearchList } from '../../components/searchList/SearchList';
-import { thresholdApplied } from '../../utils/searchHelper';
+import { BackLink } from '@components/atoms';
+import { SearchList } from '@components/searchList/SearchList';
+import { thresholdApplied } from '@utils/searchHelper';
 
 const SearchPage = () => {
     const [searchText, setSearchText] = useState('');
@@ -33,6 +33,11 @@ const SearchPage = () => {
                 <input type="text" placeholder="Search by title or author" text={searchText} onChange={onTextChange}/>
               </div>
             </div>
+            {!books && 
+            <div className="search-books-results">
+                <h1 style={{ textAlign: 'center' }}>No Results Found...</h1>
+            </div>
+            }
             {books && <SearchList books={books} />}
         </div>
     );

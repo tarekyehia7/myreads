@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-import { Spinner } from '../../atoms';
-import { Book } from '../../organisms'
-import { booksCategoriesKeys, booksCategories } from '../../../utils/booksHelper';
+import { Spinner } from '@atoms';
+import { Book } from '@organisms'
+import { booksCategoriesKeys, booksCategories } from '@utils/booksHelper';
 
 
 const WantToRead = ({ books, onShelfChange }) => {
@@ -27,6 +28,11 @@ const WantToRead = ({ books, onShelfChange }) => {
             </div>
         </div>
     );
+};
+
+WantToRead.propTypes = {
+    books: PropTypes.object.isRequired,
+    onShelfChange: PropTypes.func.isRequired,
 };
 
 export default WantToRead;

@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Select } from './SelfChanger.styled';
-import { BookShelfChanger } from '../../atoms';
-import { booksCategories } from '../../../utils/booksHelper';
+import { BookShelfChanger } from '@atoms';
+import { booksCategories } from '@utils/booksHelper';
 
 export const ShelfChanger = ({ selectedOption, onSelectionChange }) => {
     return (
@@ -15,4 +16,9 @@ export const ShelfChanger = ({ selectedOption, onSelectionChange }) => {
             </Select>
         </BookShelfChanger>
     );
+};
+
+BookShelfChanger.propTypes = {
+    selectedOption: PropTypes.string.isRequired,
+    onSelectionChange: PropTypes.func.isRequired
 };

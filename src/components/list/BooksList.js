@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
-import * as booksAPI from '../../api/BooksAPI'
+import * as booksAPI from '@api/BooksAPI'
 
 import { ListBooksContent } from './BooksList.styled';
 
-import { useShelfesDistribution } from '../../hooks/useShelfesDistribution';
+import { useShelfesDistribution } from '@hooks/useShelfesDistribution';
 import CurrentlyReading from './shelfs/CurrentlyReading';
 import WantToRead from './shelfs/WantToRead';
 import Read from './shelfs/Read';
