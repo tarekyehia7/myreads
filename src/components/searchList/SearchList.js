@@ -21,7 +21,7 @@ export const SearchList = ({ books }) => {
                     <li key={index}>
                         <Book
                             bookTitle={title}
-                            bookAuthor={authors.join(' - ')}
+                            bookAuthor={authors && authors.join(' - ')}
                             bookCoverUrl={imageLinks && imageLinks.thumbnail}
                             selectedShelf={booksCategoriesKeys.none}
                             onSelectionChange={(shelf) => onShelfChange(id, shelf)}

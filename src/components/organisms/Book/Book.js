@@ -14,7 +14,7 @@ export const Book = ({
     className,
     bookTitle = '',
     bookAuthor = '',
-    selectedShelf,
+    selectedShelf = 'none',
     bookCoverUrl = '',
     onSelectionChange,
 }) => {

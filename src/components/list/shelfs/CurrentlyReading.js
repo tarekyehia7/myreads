@@ -30,7 +30,7 @@ const CurrentlyReading = ({ books, onShelfChange }) => {
 };
 
 CurrentlyReading.propTypes = {
-    books: PropTypes.object.isRequired,
+    books: PropTypes.array.isRequired,
     onShelfChange: PropTypes.func.isRequired,
 };
 

@@ -31,7 +31,7 @@ const WantToRead = ({ books, onShelfChange }) => {
 };
 
 WantToRead.propTypes = {
-    books: PropTypes.object.isRequired,
+    books: PropTypes.array.isRequired,
     onShelfChange: PropTypes.func.isRequired,
 };
 

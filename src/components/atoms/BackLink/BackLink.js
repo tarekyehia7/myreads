@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 import { BackLink as BackButton } from './BackLink.styled';
 
-export const BackLink = ({ to, text, onClick }) => {
+export const BackLink = ({ to, text }) => {
   return   (
-    <BackButton to={to} onClick={onClick}>
+    <BackButton to={to}>
         {text}
     </BackButton>
   );
@@ -13,6 +13,5 @@ export const BackLink = ({ to, text, onClick }) => {
 
 BackLink.propTypes = {
   to: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired
+  text: PropTypes.string.isRequired
 };

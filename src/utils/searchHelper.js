@@ -3,5 +3,6 @@ const searchTerms = [
 ]
 
 export const thresholdApplied = (searchText) => {
-    return searchText.length > 2 && searchTerms.includes(searchText);
+    var regex = new RegExp( searchTerms.join( "|" ), "i");
+    return regex.test(searchText);
 }

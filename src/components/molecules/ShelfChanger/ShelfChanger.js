@@ -19,6 +19,6 @@ export const ShelfChanger = ({ selectedOption, onSelectionChange }) => {
 };
 
 BookShelfChanger.propTypes = {
-    selectedOption: PropTypes.string.isRequired,
-    onSelectionChange: PropTypes.func.isRequired
+    selectedOption: PropTypes.string,
+    onSelectionChange: PropTypes.func
 };

@@ -31,9 +31,9 @@ const BooksList = () => {
     return (
         <ListBooksContent>
           <div>
-            <CurrentlyReading books={currentlyReadingBooks} onShelfChange={onShelfChange} />
-            <WantToRead books={wantToReadBooks} onShelfChange={onShelfChange} />
-            <Read books={readBooks} onShelfChange={onShelfChange} />
+            {currentlyReadingBooks && <CurrentlyReading books={currentlyReadingBooks} onShelfChange={onShelfChange} />}
+            {wantToReadBooks && <WantToRead books={wantToReadBooks} onShelfChange={onShelfChange} />}
+            {readBooks && <Read books={readBooks} onShelfChange={onShelfChange} />}
           </div>
         </ListBooksContent>
     );
