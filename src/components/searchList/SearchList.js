@@ -7,11 +7,20 @@ import { Spinner } from '@atoms';
 import { Book } from '@organisms'
 import { booksCategoriesKeys } from '@utils/booksHelper';
 
-export const SearchList = ({ books }) => {
+export const SearchList = ({ books, transformedBooks, onShelfChanged }) => {
 
     const onShelfChange = (id, shelf) => {
         booksAPI.update({ id }, shelf);
+        onShelfChanged();
     };
+
+    const getSelectedShelf = (id) => {
+
+        if(transformedBooks && transformedBooks[id]) {
+            return transformedBooks[id].shelf
+        }
+        return booksCategoriesKeys.none
+    }
 
     return (
         <div className="search-books-results">
@@ -23,7 +32,7 @@ export const SearchList = ({ books }) => {
                             bookTitle={title}
                             bookAuthor={authors && authors.join(' - ')}
                             bookCoverUrl={imageLinks && imageLinks.thumbnail}
-                            selectedShelf={booksCategoriesKeys.none}
+                            selectedShelf={getSelectedShelf(id)}
                             onSelectionChange={(shelf) => onShelfChange(id, shelf)}
                         />
                     </li> 
@@ -34,5 +43,7 @@ export const SearchList = ({ books }) => {
 };
 
 SearchList.propTypes = {
-    books: PropTypes.object.isRequired
+    books: PropTypes.array.isRequired,
+    transformedBooks: PropTypes.object.isRequired,
+    onShelfChanged: PropTypes.func
 };

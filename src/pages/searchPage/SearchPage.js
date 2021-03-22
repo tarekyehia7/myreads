@@ -4,11 +4,13 @@ import * as booksAPI from '@api/BooksAPI'
 
 import { BackLink } from '@components/atoms';
 import { SearchList } from '@components/searchList/SearchList';
-import { thresholdApplied } from '@utils/searchHelper';
+import { thresholdApplied, transformDataToHashTable } from '@utils/searchHelper';
 
 const SearchPage = () => {
     const [searchText, setSearchText] = useState('');
     const [books, setBooks] = useState(null);
+    const [transformedBooks, setTransformedBooks] = useState(null);
+    const [shelfChanged, setShelfChanged] = useState(null);
 
     useEffect(() => {
         if (!thresholdApplied(searchText)) {
@@ -16,9 +18,26 @@ const SearchPage = () => {
             return;
         }
         booksAPI.search(searchText).then(data => {
-            setBooks(data);
+            if (!data.error) {
+                setBooks(data);
+            } else {
+                setBooks(null)
+            }
         });
     }, [searchText]);
+
+    useEffect(() => {
+        if (shelfChanged || shelfChanged === null) {
+            booksAPI.getAll().then(data => {
+                const transformedData = transformDataToHashTable(data);
+                setTransformedBooks(transformedData);
+            });
+        }
+    }, [shelfChanged]);
+
+    const onShelfChanged = () => {
+        setShelfChanged(true)
+    }  
 
     const onTextChange = (e) => {
         setSearchText(e.target.value);
@@ -38,7 +57,7 @@ const SearchPage = () => {
                 <h1 style={{ textAlign: 'center' }}>No Results Found...</h1>
             </div>
             }
-            {books && <SearchList books={books} />}
+            {books && <SearchList books={books} transformedBooks={transformedBooks}  onShelfChanged={onShelfChanged} />}
         </div>
     );
 };
