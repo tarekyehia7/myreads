@@ -1,15 +1,7 @@
-const {alias, aliasJest} = require('react-app-rewire-alias')
 
-const aliasMap = {
-  '@icons': 'src/icons',
-  '@hooks': 'src/hooks',
-  '@api': 'src/api',
-  '@utils': 'src/utils',
-  '@components': 'src/components',
-  '@atoms': 'src/components/atoms',
-  '@molecules': 'src/components/molecules',
-  '@organisms': 'src/components/organisms',
-}
+const {alias, aliasJest, configPaths} = require('react-app-rewire-alias')
+
+const aliasMap = configPaths('./tsconfig.paths.json')
 
 module.exports = alias(aliasMap)
 module.exports.jest = aliasJest(aliasMap)
