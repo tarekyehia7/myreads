@@ -1,14 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Spinner } from '@atoms';
-import { Book } from '@organisms'
+import { WantToReadProps } from '../../../dataTypes/list';
+
+import { Spinner } from '@atoms/index';
+import { Book } from '@organisms/index'
 import { booksCategoriesKeys, booksCategories } from '@utils/booksHelper';
 
-const CurrentlyReading = ({ books, onShelfChange }) => {
+const WantToRead = ({ books, onShelfChange }: WantToReadProps) => {
     return(
         <div className="bookshelf">
-            <h2 className="bookshelf-title">{booksCategories[booksCategoriesKeys.currentlyReading]}</h2>
+            <h2 className="bookshelf-title">{booksCategories[booksCategoriesKeys.wantToRead]}</h2>
             <div className="bookshelf-books">
                 <ol className="books-grid">
                     {!books && <Spinner />}
@@ -18,7 +20,7 @@ const CurrentlyReading = ({ books, onShelfChange }) => {
                                 bookTitle={title}
                                 bookAuthor={authors.join(' - ')}
                                 bookCoverUrl={imageLinks && imageLinks.thumbnail}
-                                selectedShelf={booksCategoriesKeys.currentlyReading}
+                                selectedShelf={booksCategoriesKeys.wantToRead}
                                 onSelectionChange={(shelf) => onShelfChange(id, shelf)}
                             />
                         </li> 
@@ -29,9 +31,9 @@ const CurrentlyReading = ({ books, onShelfChange }) => {
     );
 };
 
-CurrentlyReading.propTypes = {
+WantToRead.propTypes = {
     books: PropTypes.array.isRequired,
     onShelfChange: PropTypes.func.isRequired,
 };
 
-export default CurrentlyReading;
+export default WantToRead;

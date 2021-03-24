@@ -1,20 +1,21 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-import * as booksAPI from '@api/BooksAPI'
+import * as booksAPI from '@api/BooksAPI';
+import { SearchListProps } from '../../dataTypes/search';
 
-import { Spinner } from '@atoms';
-import { Book } from '@organisms'
+import { Spinner } from '@atoms/index';
+import { Book } from '@organisms/index';
 import { booksCategoriesKeys } from '@utils/booksHelper';
 
-export const SearchList = ({ books, transformedBooks, onShelfChanged }) => {
 
-    const onShelfChange = (id, shelf) => {
+export const SearchList = ({ books, transformedBooks, onShelfChanged }: SearchListProps) => {
+
+    const onShelfChange = (id: string, shelf: string) => {
         booksAPI.update({ id }, shelf);
         onShelfChanged();
     };
 
-    const getSelectedShelf = (id) => {
+    const getSelectedShelf = (id: string) => {
 
         if(transformedBooks && transformedBooks[id]) {
             return transformedBooks[id].shelf
@@ -40,10 +41,4 @@ export const SearchList = ({ books, transformedBooks, onShelfChanged }) => {
             </ol>
         </div>
     );
-};
-
-SearchList.propTypes = {
-    books: PropTypes.array.isRequired,
-    transformedBooks: PropTypes.object.isRequired,
-    onShelfChanged: PropTypes.func
 };

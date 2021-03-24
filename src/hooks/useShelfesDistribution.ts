@@ -1,9 +1,10 @@
+import { BookType } from '../dataTypes/api';
 
-export const useShelfesDistribution = (books) => {
-    if (!books) return [null, null, null];
-    const currentlyReadingBooks = [];
-    const wantToReadBooks = [];
-    const readBooks = [];
+export const useShelfesDistribution = (books: BookType[]): BookType[][] => {
+    if (!books) return [[], [], []];
+    const currentlyReadingBooks: BookType[] = [];
+    const wantToReadBooks: BookType[] = [];
+    const readBooks: BookType[] = [];
   
     books.map(e => {
       switch(e.shelf) {

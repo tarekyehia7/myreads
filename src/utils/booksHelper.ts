@@ -1,4 +1,4 @@
-
+// TODO: change this to enum instead
 export const booksCategoriesKeys = {
     currentlyReading: 'currentlyReading',
     wantToRead: 'wantToRead',
